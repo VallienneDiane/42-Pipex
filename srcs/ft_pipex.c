@@ -85,7 +85,7 @@ int	ft_pipex(t_cmd *cmd, char **envp)
 	pid2 = 0;
 	pid1 = 0;
 	ft_process(pid1, pid2, cmd, envp);
-	waitpid(pid1, &status, 0);
-	waitpid(pid2, &status, 0);
+	wait(&pid1);
+	wait(&pid2);
 	return (WEXITSTATUS(status));
 }
